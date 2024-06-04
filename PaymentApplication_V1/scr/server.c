@@ -76,14 +76,14 @@ EN_serverError_t isValidAccount(ST_cardData_t* cardData, ST_accountsDB_t* accoun
 
 		if (strcmp(cardData->primaryAccountNumber,currentAccount->primaryAccountNumber)==0) {
 
-			printf("\nAccount is Valid!");
+			printf("\n------- Account is Valid!");
 			foundAccount = currentAccount;
 
 			INDEX = i;
 			return SERVER_OK;
 		}
 	}
-	printf("\n%s", "Account is not Valid!");
+	printf("\n%s", "XX-------XX  Account is not Valid!");
 	return ACCOUNT_NOT_FOUND;
 }
 EN_accountState_t isBlockedAccount(ST_accountsDB_t* accountRefrence) {
@@ -92,7 +92,7 @@ EN_accountState_t isBlockedAccount(ST_accountsDB_t* accountRefrence) {
 		return BLOCKED;
 	}
 	else if (accountRefrence->state == RUNNING) {
-		printf("\n%s", "your account is Running");
+		printf("\n%s", "-------  your account is Running");
 		return RUNNING;
 	}
 }
@@ -119,7 +119,7 @@ EN_serverError_t saveTransaction(ST_transaction_t* transData) {
 
 	//editing the database
 	foundAccount->balance -= transactions[lastTransactionNum].terminalData.transAmount;
-	printf("your transaction is done and your new balance is: %f", foundAccount->balance);
+	printf("------- your transaction is done and\n\n your new balance is:  %.2f", foundAccount->balance);
 	fflush(stdin); fflush(stdout);
 	uint32_t isSaved = getTransaction(transactions[lastTransactionNum].transactionSequenceNumber, transData);
 

@@ -17,7 +17,8 @@
  *if the card holder name is null, less than 20 characters or more than 24 will return Wrong_name error, else return card_ok
  */
 EN_cardError_t getCardHolderName(ST_cardData_t* cardData) {
-	printf("Please enter your card holder name:\n");
+
+	printf("------->Please enter your card holder name:\n");
 	fflush(stdin); fflush(stdout);
 	gets(cardData->cardHolderName);
 
@@ -28,13 +29,12 @@ EN_cardError_t getCardHolderName(ST_cardData_t* cardData) {
 }
 
 
-
 /*This function will ask for the card expiry date and store it in card data
  *card expiry date is 5 characters string in the format "MM/YY", e.g "05/25"
  *If the card expiry date is null, less or more than 5 characters, or has the wrong format will return WRONG_EXP_date error, else return CARD_OK
  */
 EN_cardError_t getCardExpiryDate(ST_cardData_t* cardData) {
-	printf("Please enter your card expiry date:MM/YY\n");
+	printf("------->Please enter your card expiry date:MM/YY\n");
 	fflush(stdin); fflush(stdout);
 	gets(cardData->cardExpirationDate);
 	//after modification
@@ -60,7 +60,7 @@ EN_cardError_t getCardExpiryDate(ST_cardData_t* cardData) {
  * If the PAN is NULL, less than 16 or more than 19 characters , will return WRONG_PAN error, else return CARD_OK
  */
 EN_cardError_t getCardPAN(ST_cardData_t* cardData) {
-	printf("Please enter your Primary Account Number\n");
+	printf("------->Please enter your Primary Account Number\n");
 	fflush(stdin); fflush(stdout);
 	gets(cardData->primaryAccountNumber);
 	if (strlen(cardData->primaryAccountNumber) > 19 || strlen(cardData->primaryAccountNumber) < 16 || cardData->primaryAccountNumber == NULL)

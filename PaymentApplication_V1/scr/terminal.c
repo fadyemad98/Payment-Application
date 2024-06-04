@@ -25,7 +25,7 @@ typedef unsigned int uint32_t;
  *If the transaction date is NULL, less than 10 characters or wrong format will return WRONG_DATE error, else return OK.
  */
 EN_terminalError_t getTransactionDate(ST_terminalData_t* termData) {
-	printf("Please enter the transacion date:DD/MM/YY\n");
+	printf("------->Please enter the transacion date: DD/MM/YY\n");
 	fflush(stdin); fflush(stdout);
 	gets(termData->transactionDate);
 	//after modification
@@ -94,7 +94,7 @@ EN_terminalError_t isCardExpired(ST_cardData_t cardData, ST_terminalData_t  term
 //This function asks for the transaction amount and saves it into terminal data.
 //If the transaction amount is less than or equal to 0 will return INVALID_AMOUNT, else return OK.
 EN_terminalError_t getTransactionAmount(ST_terminalData_t* termData) {
-	printf("Please enter the transacion amount:\n");
+	printf("-------> Please enter the transacion amount:\n");
 	fflush(stdin); fflush(stdout);
 	scanf_s("%f", &termData->transAmount);
 	if (termData->transAmount <= 0)
@@ -115,7 +115,7 @@ EN_terminalError_t isBelowMaxAmount(ST_terminalData_t* termData) {
 //Transaction max amount is a float number.
 //If transaction max amount less than or equal to 0 will return INVALID_MAX_AMOUNT error, else return OK.
 EN_terminalError_t setMaxAmount(ST_terminalData_t* termData) {
-	printf("Please set the max amount:\n");
+	printf("-------> Please set the max amount:\n");
 	fflush(stdin); fflush(stdout);
 	scanf_s("%f", &termData->maxTransAmount);
 	if (termData->maxTransAmount <= 0)
