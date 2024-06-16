@@ -11,7 +11,13 @@
 #include "card.h"
 #include "terminal.h"
 #include "server.h"
+#include <windows.h>
+#include "conio.h"
+#include <time.h>
 /*********************************************************/
+#define INTERVAL (0.1 * CLOCKS_PER_SEC)     // tenth second
+
+
 
 
 
@@ -145,15 +151,52 @@ void appStart(void) {
 
 
 }
+
+//***************************************************************
+	//        INTRODUCTION FUNCTION
+	//****************************************************************
+
+	void intro()
+	{
+
+
+
+	 printf(" \n\n\n\n\n\t\t\t\t\t    *   *   *   *   *   *   *   *");
+			printf("\n\n\t\t\t\t\t    *    MADE BY Fady Emad      *");
+			printf("\n\n\t\t\t\t\t    *          Welcome !!!      *");
+			printf("\n\n\t\t\t\t\t    *   CopyRights Preserved    *");
+			printf("\n\n\t\t\t\t\t    *   *   *   *   *   *   *   *\n\n\n");
+
+			printf("\n\n\n\t\t\t\t\tLoading Please wait!   ");
+			for(int i=0; i<7; i++)
+	        {
+	             printf(".");
+				Sleep(500);
+	        }
+
+			printf("\n\n\n\t\t\t\t\tPress any key to continue ");
+			for(int i=0; i<7; i++)
+				        {
+				             printf(".");
+							Sleep(100);
+				        }
+
+
+
+	 getch();
+	}
+
+
 int main() {
+	intro();
 	while(1){
-	printf("########################################################\n");
-	printf("########################################################\n");
-	printf("##----------Welcome to Payment Application-----------###\n");
-	printf("########################################################\n");
-	printf("########################################################\n\n");
+	printf(" \n\n \t\t\t    ########################################################\n");
+	printf("      \t\t\t    ########################################################\n");
+	printf("      \t\t\t    ##----------Welcome to PayWave Application-----------###\n");
+	printf("      \t\t\t    ########################################################\n");
+	printf("      \t\t\t    ########################################################\n\n");
 	appStart();
-	printf("########################################################\n");
+	printf("      \t\t    ########################################################\n");
 	printf("\n\n\n\n\n\n\n\n");
 	}
 }
