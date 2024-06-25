@@ -8,6 +8,7 @@
 /***************************includes**********************/
 #include <stdio.h>
 #include "stdlib.h"
+#include <string.h>
 #include "card.h"
 #include "terminal.h"
 #include "server.h"
@@ -151,10 +152,34 @@ void appStart(void) {
 
 
 }
+int Passkey_Match(char* pass){
+	char* password="1234";
+	static int j=0;
+	if(strcmp(pass,password) && j<3){
+		printf("\n\n\n\t\t\t\t\tIncorrect Password   Try again!\n");
+		printf("\n\n\n\t\t\t\t\t**Trial %d",j+1);
+		j++;
+		return 0;
+	}else if(j==3){
+		printf("\n\n\n\t\t\t\t\tExceed number of trials !\n");
+		printf("\n\n\n\t\t\t\t\tLoading Please wait!   ");
+					for(int i=0; i<7; i++)
+			        {
+			            printf(".");
+						Sleep(500);
+			        }
+		j=0;
+		return 0;
+	}
+	else{
+		printf("Correct Password\n");
+		return 1;
+	}
+	}
 
 //***************************************************************
-	//        INTRODUCTION FUNCTION
-	//****************************************************************
+//        				INTRODUCTION FUNCTION
+//****************************************************************
 
 	void intro()
 	{
@@ -173,6 +198,7 @@ void appStart(void) {
 	             printf(".");
 				Sleep(500);
 	        }
+			printf("\n\n\n\t\t\t\t\t  * * * Terminal Secured * * *   ");
 
 			printf("\n\n\n\t\t\t\t\tPress any key to continue ");
 			for(int i=0; i<7; i++)
@@ -184,11 +210,21 @@ void appStart(void) {
 
 
 	 getch();
+
 	}
 
 
 int main() {
 	intro();
+	int x=0;
+	char passStr[4];
+	while(!x){
+
+		printf("\n\n\n\t\t\t\t\tPlease enter password: ");
+		scanf("%s",&passStr);
+		x=Passkey_Match(&passStr);
+	}
+
 	while(1){
 	printf(" \n\n \t\t\t    ########################################################\n");
 	printf("      \t\t\t    ########################################################\n");
