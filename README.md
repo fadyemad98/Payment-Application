@@ -31,7 +31,7 @@ Add header file guard
 
 Create the main.c file
 
-## Implement the card module 🎨##
+## Implement the card module 🎨 ##
 Fill in card.h file with functions' prototypes and typedefs
 
 Implement getCardHolderName function
